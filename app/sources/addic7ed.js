@@ -6,7 +6,7 @@ const { dialog } = remote;
 
 export async function searchFile(rawFile, language) {
   const file = checkExtention(rawFile);
-  const splitFileName = file.name.match(/s([0-9]{1,2})\s*e([0-9]{1,2})/i);
+  const splitFileName = file.name.match(/s([0-9]{1,2})\s*e([0-9]{1,2})|([0-9]{1,2})x([0-9]{1,2})/i);
 
   if (!splitFileName) {
     throw new Error("No subtitles found.");
@@ -32,7 +32,7 @@ export async function searchFile(rawFile, language) {
 }
 
 export async function searchQuery(query, language) {
-  const splitQuery = query.match(/s([0-9]{1,2})\s*e([0-9]{1,2})/i);
+  const splitQuery = query.match(/s([0-9]{1,2})\s*e([0-9]{1,2})|([0-9]{1,2})x([0-9]{1,2})/i);
 
   if (!splitQuery) {
     throw new Error("No subtitles found.");
